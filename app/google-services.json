@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "430527543763",
+    "project_id": "game-description-6aed4",
+    "storage_bucket": "game-description-6aed4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430527543763:android:ab14e86bf35b92c75a5726",
+        "android_client_info": {
+          "package_name": "com.kotlin.gamedescription"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430527543763-5kmhr6dssj7o7sta2s2qkml093403efm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDerRI0MsgaHf-ulIjpGcw6FSdARmPW3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430527543763-5kmhr6dssj7o7sta2s2qkml093403efm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
