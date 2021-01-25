@@ -6,4 +6,6 @@
     <string name="txt_Register">Create account</string>
     <string name="txt_Login">Login</string>
     <string name="txt_Email_Format">email@email.com</string>
+    <string name="txt_Name">Name</string>
+    <string name="txt_Password_Repeat">Repeate Password</string>
 </resources>

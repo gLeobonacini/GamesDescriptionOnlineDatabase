@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(mAuth.currentUser != null){
-            startNextActivity(Intent(this,RegisterActivity::class.java))
+            startNextActivity(Intent(this,GamesActivity::class.java))
         }
 
     }
@@ -44,12 +44,12 @@ class LoginActivity : AppCompatActivity() {
             ) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("Firebase Auth Sign In", "signInWithEmail:success")
+                    Log.d("Sign In", "signInWithEmail:success")
                     val user = mAuth.currentUser
                     startNextActivity(Intent(this,GamesActivity::class.java))
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("Firebase Auth Sign In", "signInWithEmail:failure", task.exception)
+                    Log.w("Sign In", "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         this, "Authentication failed.",
                         Toast.LENGTH_SHORT
