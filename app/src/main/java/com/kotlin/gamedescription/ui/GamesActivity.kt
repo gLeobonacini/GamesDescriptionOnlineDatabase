@@ -49,8 +49,9 @@ class GamesActivity : AppCompatActivity(), Adapter.OnClickListener {
 
     override fun onClick(position: Int) {
         val game = viewModel.gameList.value!![position]
+        Log.i("TAG",game.toString())
         val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra("imgGame", game.img)
+        intent.putExtra("imgGame", game.img.toString())
         intent.putExtra("nameGame", game.name)
         intent.putExtra("yearGame", game.year)
         intent.putExtra("descriptionGame", game.description)
