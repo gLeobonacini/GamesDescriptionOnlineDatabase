@@ -15,7 +15,7 @@ import java.util.ArrayList
 
 class Adapter(val listener: OnClickListener): RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-    private val gameList = arrayListOf<Game>()
+    private var gameList = arrayListOf<Game>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_game, parent, false)
@@ -35,7 +35,7 @@ class Adapter(val listener: OnClickListener): RecyclerView.Adapter<Adapter.ViewH
     }
 
     fun addList(list: ArrayList<Game>){
-        gameList.addAll(list)
+        gameList = list
         notifyDataSetChanged()
     }
 
