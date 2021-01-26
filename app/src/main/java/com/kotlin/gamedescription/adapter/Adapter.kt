@@ -1,5 +1,6 @@
 package com.kotlin.digitalhousefood
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,13 +23,14 @@ class Adapter(val listener: OnClickListener): RecyclerView.Adapter<Adapter.ViewH
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var game = gameList.get(position)
-        //holder.imgGame.setImageResource(game.img)
+        holder.imgGame.setImageURI(game.img)
         holder.gameName.text = game.name
         holder.gameYear.text = game.year
     }
 
-    private fun addList(list: ArrayList<Game>){
+    fun addList(list: ArrayList<Game>){
         gameList.addAll(list)
+        notifyDataSetChanged()
     }
 
     interface OnClickListener{

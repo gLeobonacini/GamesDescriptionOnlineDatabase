@@ -1,5 +1,5 @@
 package com.kotlin.digitalhousefood
 
-import java.net.URI
+import android.net.Uri
 
-data class Game(val img: URI, val name: String, val year: String, val description: String)
+data class Game(val img: Uri, val name: String, val year: String, val description: String)

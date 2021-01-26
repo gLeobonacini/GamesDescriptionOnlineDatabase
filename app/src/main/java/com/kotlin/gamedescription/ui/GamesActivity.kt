@@ -1,36 +1,49 @@
 package com.kotlin.gamedescription.ui
 
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kotlin.digitalhousefood.Adapter
 import com.kotlin.gamedescription.R
+import com.kotlin.gamedescription.model.MainViewModel
 import kotlinx.android.synthetic.main.activity_games.*
+import androidx.activity.viewModels
 
 class GamesActivity : AppCompatActivity(), Adapter.OnClickListener {
 
+    private val viewModel:MainViewModel by viewModels()
     private var adapter = Adapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_games)
 
-        val cm = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork = cm.activeNetwork
-        if (activeNetwork == null){
+        if (viewModel.internetConnection()){
             idNoConnection.setBackgroundResource(R.drawable.no_internet_connection)
         }
         else{
-            idNoConnection.setBackgroundResource(R.color.grey)
-            rvGame.adapter = adapter
-            rvGame.layoutManager = GridLayoutManager(this,2)
+            recyclerViewConfig()
+
+            viewModel.gameList.observeForever{
+                adapter.addList(it)
+            }
+
             idAddGame.setOnClickListener{
                 startNewActivity(Intent(this,AddActivity::class.java))
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.getDataDB()
+    }
+
+    private fun recyclerViewConfig(){
+        idNoConnection.setBackgroundResource(R.color.grey)
+        rvGame.adapter = adapter
+        rvGame.layoutManager = GridLayoutManager(this,2)
     }
 
     override fun onClick(position: Int) {
