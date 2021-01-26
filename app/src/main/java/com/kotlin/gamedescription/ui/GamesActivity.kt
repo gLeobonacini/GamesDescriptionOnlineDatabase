@@ -3,6 +3,7 @@ package com.kotlin.gamedescription.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kotlin.digitalhousefood.Adapter
 import com.kotlin.gamedescription.R
@@ -47,12 +48,13 @@ class GamesActivity : AppCompatActivity(), Adapter.OnClickListener {
     }
 
     override fun onClick(position: Int) {
-        //val prato = listaPrato[position]
-        //val intent = Intent(this, ActivityDescricao::class.java)
-        //intent.putExtra("imgPrato", prato.img)
-        //intent.putExtra("nomePrato", prato.nome)
-        //intent.putExtra("descricaoPrato", prato.descricao)
-        //startActivity(intent)
+        val game = viewModel.gameList.value!![position]
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra("imgGame", game.img)
+        intent.putExtra("nameGame", game.name)
+        intent.putExtra("yearGame", game.year)
+        intent.putExtra("descriptionGame", game.description)
+        startNewActivity(intent)
     }
 
     private fun startNewActivity(intent: Intent){

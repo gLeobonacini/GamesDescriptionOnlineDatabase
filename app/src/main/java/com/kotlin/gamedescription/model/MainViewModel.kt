@@ -11,6 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.storage.FirebaseStorage
 import com.kotlin.digitalhousefood.Game
 import dmax.dialog.SpotsDialog
@@ -20,6 +21,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     private val contexto = getApplication<Application>().applicationContext
     val gameList = MutableLiveData<ArrayList<Game>>()
+    val gamelist: ArrayList<Game> = arrayListOf()
     var mAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
     val cr = db.collection("games")
@@ -34,23 +36,25 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     }
 
     fun getDataDB(){
-        val gamelist = arrayListOf<Game>()
+        var game: Game
         viewModelScope.launch{
             db.collection("games").get().addOnCompleteListener {task->
                 if(task.isSuccessful){
                     for (document in task.result!!){
-                        //Log.i("TAG",document.id + " => " + document.data)
-                        gamelist.add(Game(Uri.parse(document.data["image"].toString()),
-                            document.data["name"].toString(),
-                            document.data["year"].toString(),
-                            document.data["descrption"].toString()))
+                        var game = Game(Uri.parse(document.data["image"].toString()),
+                                document.data["name"].toString(),
+                                document.data["year"].toString(),
+                                document.data["description"].toString())
+                        gamelist.add(game)
                     }
+                    gameList.value = gamelist
+                    //Log.i("TAG","=> " + gameList.value.toString())
                 }else{
                     Log.e("TAG", "Error getting documents.", task.exception)
                 }
             }
-            gameList.value = gamelist
         }
+
     }
 
     fun showToast(msg:String){

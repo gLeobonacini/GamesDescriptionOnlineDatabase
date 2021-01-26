@@ -8,6 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.gamedescription.R
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import kotlinx.android.synthetic.main.activity_add.*
 import java.util.ArrayList
 
 class Adapter(val listener: OnClickListener): RecyclerView.Adapter<Adapter.ViewHolder>() {
@@ -23,7 +26,10 @@ class Adapter(val listener: OnClickListener): RecyclerView.Adapter<Adapter.ViewH
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var game = gameList.get(position)
-        holder.imgGame.setImageURI(game.img)
+        Picasso.get().load(game.img)
+            .fit()
+            .centerCrop()
+            .into(holder.imgGame)
         holder.gameName.text = game.name
         holder.gameYear.text = game.year
     }
@@ -39,7 +45,7 @@ class Adapter(val listener: OnClickListener): RecyclerView.Adapter<Adapter.ViewH
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView), View.OnClickListener{
         var imgGame: ImageView = itemView.findViewById(R.id.idImgGame)
-        var gameName: TextView = itemView.findViewById(R.id.idName)
+        var gameName: TextView = itemView.findViewById(R.id.idNameGame)
         var gameYear: TextView = itemView.findViewById(R.id.idYearGame)
 
         init{
