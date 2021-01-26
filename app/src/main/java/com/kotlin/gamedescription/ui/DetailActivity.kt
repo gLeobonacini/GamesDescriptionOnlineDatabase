@@ -47,5 +47,6 @@ class DetailActivity : AppCompatActivity() {
         intent.putExtra("yearGame", game.year)
         intent.putExtra("descriptionGame", game.description)
         startActivity(intent)
+        finish()
     }
 }
