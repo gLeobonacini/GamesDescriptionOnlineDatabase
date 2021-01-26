@@ -4,6 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AddActivity">
+    tools:context=".ui.LoginActivity"
+    android:background="@drawable/splash_screen_gow">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/round_login"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="70dp"
+            android:text="@string/txt_Name"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/idAddGameName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/purple_700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/txt_created_at"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/idAddGameYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/purple_700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/txt_description"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/idAddGameDescription"
+            android:layout_width="match_parent"
+            android:layout_height="147dp"
+            android:layout_marginHorizontal="20dp"
+            android:inputType="textMultiLine"
+            android:textColor="@color/purple_700" />
+
+
+        <Button
+            android:id="@+id/idSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/bt_Login"
+            android:text="@string/txt_Save" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/idAddGameImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="450dp"
+        android:background="@drawable/round_iv"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/idAddGameImage"
+        app:layout_constraintEnd_toEndOf="@+id/idAddGameImage"
+        app:layout_constraintStart_toStartOf="@+id/idAddGameImage"
+        app:layout_constraintTop_toTopOf="@+id/idAddGameImage" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

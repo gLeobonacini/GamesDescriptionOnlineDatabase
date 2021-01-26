@@ -9,4 +9,7 @@
     <string name="txt_Name">Name</string>
     <string name="txt_Password_Repeat">Repeate Password</string>
     <string name="txt_Search">Search Game</string>
+    <string name="txt_created_at">Created at</string>
+    <string name="txt_description">Description</string>
+    <string name="txt_Save">Save Game</string>
 </resources>

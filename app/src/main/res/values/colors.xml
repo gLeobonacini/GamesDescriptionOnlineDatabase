@@ -10,4 +10,5 @@
     <color name="bt_Login">#FF5252</color>
     <color name="create_account">#00A6FF</color>
     <color name="grey">#DDDDDD</color>
+    <color name="darkGrey">#8492A6</color>
 </resources>
