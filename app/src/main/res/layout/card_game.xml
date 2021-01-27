@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_height="200dp"
+    android:layout_height="220dp"
     android:layout_width="183dp"
     android:layout_margin="10dp"
     android:background="@drawable/round_login">
@@ -15,7 +15,7 @@
     <TextView
         android:id="@+id/idNameGame"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="45dp"
         android:text="Game"
         android:textColor="@color/black"
         android:textSize="15dp"

@@ -37,6 +37,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     fun getDataDB(){
         var game: Game
+        gamelist.clear()
         viewModelScope.launch{
             db.collection("games").get().addOnCompleteListener {task->
                 if(task.isSuccessful){
